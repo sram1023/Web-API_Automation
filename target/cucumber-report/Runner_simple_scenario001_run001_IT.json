@@ -1,0 +1,295 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "start_timestamp": "2021-07-23T15:34:51.064Z",
+        "line": 6,
+        "name": "Expose the CRUD operations for Rest APIs",
+        "description": "",
+        "id": "rest-api-tests;expose-the-crud-operations-for-rest-apis",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 526000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the rest api for post is ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "post",
+                  "offset": 17
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.restApi(java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2985000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I post the record with some details",
+            "match": {
+              "arguments": [
+                {
+                  "val": "post",
+                  "offset": 2
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.iPostTheRecordWithSomeDetails(java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 8000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "validate the success status OK",
+            "match": {
+              "arguments": [
+                {
+                  "val": "OK",
+                  "offset": 28
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.validateTheSuccessStatus(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the rest api for get is ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 17
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.restApi(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2800000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I get the record with some details",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 2
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.iPostTheRecordWithSomeDetails(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "validate the address 45 tweedy road from get response",
+            "match": {
+              "arguments": [
+                {
+                  "val": "45 tweedy road",
+                  "offset": 21
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.validateTheNameFrontlineHousesFromGetResponse(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "the rest api for put is ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "put",
+                  "offset": 17
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.restApi(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3375000000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "I update the record with some details",
+            "match": {
+              "arguments": [
+                {
+                  "val": "update",
+                  "offset": 2
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.iPostTheRecordWithSomeDetails(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "validate the message Address successfully updated",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Address successfully updated",
+                  "offset": 21
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.validateTheMessageAddressSuccessfullyUpdated(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "the rest api for get is ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 17
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.restApi(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2558000000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I get the record with some details",
+            "match": {
+              "arguments": [
+                {
+                  "val": "get",
+                  "offset": 2
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.iPostTheRecordWithSomeDetails(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "validate the address 99 tweedy road from get response",
+            "match": {
+              "arguments": [
+                {
+                  "val": "99 tweedy road",
+                  "offset": 21
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.validateTheNameFrontlineHousesFromGetResponse(java.lang.String)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "the rest api for delete is ready",
+            "match": {
+              "arguments": [
+                {
+                  "val": "delete",
+                  "offset": 17
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.restApi(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2865000000,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I delete the record with some details",
+            "match": {
+              "arguments": [
+                {
+                  "val": "delete",
+                  "offset": 2
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.iPostTheRecordWithSomeDetails(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "validate the success status OK",
+            "match": {
+              "arguments": [
+                {
+                  "val": "OK",
+                  "offset": 28
+                }
+              ],
+              "location": "com.api.stepdefinitions.RestWebServices.validateTheSuccessStatus(java.lang.String)"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@2222"
+          }
+        ]
+      }
+    ],
+    "name": "Rest API tests",
+    "description": "",
+    "id": "rest-api-tests",
+    "keyword": "Feature",
+    "uri": "file:target/parallel/features/simple_scenario001_run001_IT.feature",
+    "tags": []
+  }
+]

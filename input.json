@@ -1,0 +1,43 @@
+{
+  "POST": [
+    "BaseURI=https://rahulshettyacademy.com",
+    "HeaderKey=Content-Type",
+    "HeaderValue=application/json",
+    "QueryParamKey=key",
+    "QueryParamValue=qaclick123",
+    "Body={\n  \"location\": {\n    \"lat\": -38.383494,\n    \"lng\": 33.427362\n  },\n  \"accuracy\": 50,\n  \"name\": \"Frontline houses\",\n  \"phone_number\": \"(+91) 983 000 0000\",\n  \"address\": \"45 tweedy road\",\n  \"types\": [\n    \"shoe park\",\n    \"shop\"\n  ],\n  \"website\": \"http://google.com\",\n  \"language\": \"French-IN\"\n}",
+    "Resource=maps/api/place/add/json",
+    "StatusCode=200"
+  ],
+
+  "GET": [
+    "BaseURI=https://rahulshettyacademy.com",
+    "HeaderKey=Content-Type",
+    "HeaderValue=application/json",
+    "QueryParamPlaceId=place_id",
+    "QueryParamKey=key",
+    "QueryParamValue=qaclick123",
+    "Resource=maps/api/place/get/json",
+    "StatusCode=200"
+  ],
+  "PUT": [
+    "BaseURI=https://rahulshettyacademy.com",
+    "HeaderKey=Content-Type",
+    "HeaderValue=application/json",
+    "QueryParamKey=key",
+    "QueryParamValue=qaclick123",
+    "Body={\n\"place_id\":\"dynamicPlaceId\",\n\"address\":\"99 tweedy road\",\n\"key\":\"qaclick123\"\n}",
+    "Resource=maps/api/place/update/json",
+    "StatusCode=200"
+  ],
+  "DELETE": [
+    "BaseURI=https://rahulshettyacademy.com",
+    "HeaderKey=Content-Type",
+    "HeaderValue=application/json",
+    "QueryParamKey=key",
+    "QueryParamValue=qaclick123",
+    "Body={\n\n    \"place_id\":\"dynamicPlaceId\"\n}",
+    "Resource=maps/api/place/delete/json",
+    "StatusCode=200"
+  ]
+}
