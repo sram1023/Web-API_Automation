@@ -34,7 +34,7 @@ public class MyTest {
                 System.out.println(myRecord.keySet()+","+myRecord.values());
                 for (Map.Entry<String, String> record1: myRecord.entrySet()) {
                     System.out.println("key: " + record1.getKey() + " value: " + record1.getValue());
-                   
+
                 }
             }
 

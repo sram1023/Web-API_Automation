@@ -1,1 +1,14 @@
+Pojo\PostResponse.class
+pages\AuthenticationPage.class
+Pojo\DeleteResponse.class
+pages\HomePage.class
+Pojo\Location.class
+steps\WaitSteps.class
+context\TestContext.class
+Pojo\Post.class
+Pojo\PutResponse.class
+MyTest.class
+Pojo\Delete.class
+utils\WebServiceUtil.class
 utils\CommonUtil.class
+Pojo\Put.class

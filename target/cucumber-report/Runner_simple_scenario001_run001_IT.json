@@ -3,17 +3,38 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2021-07-23T15:34:51.064Z",
+        "start_timestamp": "2021-08-06T10:47:01.766Z",
+        "before": [
+          {
+            "result": {
+              "duration": 10448000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.hooks.Hooks.beforeScenario()"
+            }
+          }
+        ],
         "line": 6,
         "name": "Expose the CRUD operations for Rest APIs",
         "description": "",
         "id": "rest-api-tests;expose-the-crud-operations-for-rest-apis",
+        "after": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.hooks.Hooks.afterScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 526000000,
+              "duration": 847000000,
               "status": "passed"
             },
             "line": 7,
@@ -31,7 +52,7 @@
           },
           {
             "result": {
-              "duration": 2985000000,
+              "duration": 4371000000,
               "status": "passed"
             },
             "line": 8,
@@ -49,7 +70,7 @@
           },
           {
             "result": {
-              "duration": 8000000,
+              "duration": 49000000,
               "status": "passed"
             },
             "line": 9,
@@ -67,7 +88,7 @@
           },
           {
             "result": {
-              "duration": 1000000,
+              "duration": 8000000,
               "status": "passed"
             },
             "line": 10,
@@ -85,7 +106,7 @@
           },
           {
             "result": {
-              "duration": 2800000000,
+              "duration": 2736000000,
               "status": "passed"
             },
             "line": 11,
@@ -106,11 +127,11 @@
               "status": "passed"
             },
             "line": 12,
-            "name": "validate the address 45 tweedy road from get response",
+            "name": "validate the address 45 Tweedy Road from get response",
             "match": {
               "arguments": [
                 {
-                  "val": "45 tweedy road",
+                  "val": "45 Tweedy Road",
                   "offset": 21
                 }
               ],
@@ -120,7 +141,6 @@
           },
           {
             "result": {
-              "duration": 2000000,
               "status": "passed"
             },
             "line": 13,
@@ -138,7 +158,7 @@
           },
           {
             "result": {
-              "duration": 3375000000,
+              "duration": 3069000000,
               "status": "passed"
             },
             "line": 14,
@@ -173,7 +193,7 @@
           },
           {
             "result": {
-              "duration": 2000000,
+              "duration": 9000000,
               "status": "passed"
             },
             "line": 16,
@@ -191,7 +211,7 @@
           },
           {
             "result": {
-              "duration": 2558000000,
+              "duration": 2655000000,
               "status": "passed"
             },
             "line": 17,
@@ -212,11 +232,11 @@
               "status": "passed"
             },
             "line": 18,
-            "name": "validate the address 99 tweedy road from get response",
+            "name": "validate the address 76 college road from get response",
             "match": {
               "arguments": [
                 {
-                  "val": "99 tweedy road",
+                  "val": "76 college road",
                   "offset": 21
                 }
               ],
@@ -226,7 +246,6 @@
           },
           {
             "result": {
-              "duration": 2000000,
               "status": "passed"
             },
             "line": 19,
@@ -244,7 +263,7 @@
           },
           {
             "result": {
-              "duration": 2865000000,
+              "duration": 3173000000,
               "status": "passed"
             },
             "line": 20,
@@ -262,25 +281,26 @@
           },
           {
             "result": {
+              "duration": 15899000000,
               "status": "passed"
             },
             "line": 21,
-            "name": "validate the success status OK",
+            "name": "validate the delete success status OK",
             "match": {
               "arguments": [
                 {
                   "val": "OK",
-                  "offset": 28
+                  "offset": 35
                 }
               ],
-              "location": "com.api.stepdefinitions.RestWebServices.validateTheSuccessStatus(java.lang.String)"
+              "location": "com.api.stepdefinitions.RestWebServices.validateTheDeleteSuccessStatus(java.lang.String)"
             },
             "keyword": "Then "
           }
         ],
         "tags": [
           {
-            "name": "@2222"
+            "name": "@api"
           }
         ]
       }

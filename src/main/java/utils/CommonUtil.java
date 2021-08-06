@@ -1,5 +1,6 @@
 package utils;
 
+import context.TestContext;
 import io.cucumber.messages.internal.com.google.gson.Gson;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
@@ -10,13 +11,16 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.WebElement;
+import pages.AuthenticationPage;
+import pages.HomePage;
+import steps.WaitSteps;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static io.restassured.RestAssured.*;
 import static java.util.stream.Collectors.toMap;
@@ -24,108 +28,78 @@ import static java.util.stream.Collectors.toMap;
 @Slf4j
 public class CommonUtil {
 
+    TestContext testContext;
     Map<String, String> collect = null;
     String response;
     JSONObject postJsonObject;
     JSONObject jsonObject;
+    LinkedHashMap<String, String> inputValues = new LinkedHashMap<>();
+    WaitSteps waitSteps = new WaitSteps();
+    WaitSteps homePage = new HomePage();
+    WaitSteps authenticationPage = new AuthenticationPage();
 
-    public Map<String, String> restApiActions(String action) {
-        return getInputData(action);
+    public CommonUtil(TestContext testContext) {
+        this.testContext = testContext;
     }
 
-    public void postAction(String action) {
-        RestAssured.baseURI = collect.get("BaseURI");
 
-        switch (action) {
-            case "post":
-                response =  given().spec(requestSpecification()).body(collect.get("Body")).
-                        when().post(collect.get("Resource")).then().assertThat().
-                        statusCode(Integer.parseInt(collect.get("StatusCode"))).log().all()
-                        .extract().response().asString();
-                log.info("Post Response==============" + response);
-                break;
-            case "get":
-                response =  given().spec(requestSpecification()).queryParam(collect.get("QueryParamPlaceId"), placeIdValue()).
-                        when().get(collect.get("Resource")).then().assertThat().
-                        statusCode(Integer.parseInt(collect.get("StatusCode"))).log().all()
-                        .extract().response().asString();
-                break;
-            case "update":
-                response =  given().spec(requestSpecification()).body(collect.get("Body").replace("dynamicPlaceId", placeIdValue())).
-                        when().put(collect.get("Resource")).then().assertThat().
-                        statusCode(Integer.parseInt(collect.get("StatusCode"))).log().all()
-                        .extract().response().asString();
 
-                break;
-            case "delete":
-                response =  given().spec(requestSpecification()).body(collect.get("Body").replace("dynamicPlaceId", placeIdValue())).
-                        when().delete(collect.get("Resource")).then().assertThat().
-                        statusCode(Integer.parseInt(collect.get("StatusCode"))).log().all()
-                        .extract().response().asString();
-                break;
-            default:
-                throw new IllegalArgumentException("Actions are not matched");
-        }
 
-    }
 
-    public String placeIdValue() {
-        return postJsonObject.getString("place_id");
-    }
-
-    public void validateStatus(String expected) {
+    private void fillMyScreen(LinkedHashMap<String, String> inputValues, WaitSteps page) {
         try {
-            postJsonObject = new JSONObject(response);
-            Assert.assertEquals(expected, postJsonObject.getString("status"));
-        } catch (JSONException err) {
-            err.printStackTrace();
-        }
-
-    }
-
-    public void validateUpdateStatus(String expected) {
-        try {
-            jsonObject = new JSONObject(response);
-            Assert.assertEquals(expected, jsonObject.getString("msg"));
-        } catch (JSONException err) {
-            err.printStackTrace();
-        }
-
-    }
-
-    public void validateGetServiceResponse(String expected) {
-        try {
-            jsonObject = new JSONObject(response);
-            Assert.assertEquals(expected, jsonObject.getString("address"));
-        } catch (JSONException err) {
-            err.printStackTrace();
-        }
-    }
-
-    public Map<String, String> getInputData(String action) {
-        List<String> inputData = new ArrayList<>();
-        Gson gson = new Gson();
-        try (Reader reader = new FileReader("input.json")) {
-            Map<String, List<String>> strJson = gson.fromJson(reader, Map.class);
-            for (Map.Entry<String, List<String>> entry : strJson.entrySet()) {
-                if (entry.getKey().toLowerCase().equals(action.toLowerCase())) {
-                    inputData = entry.getValue();
-                    break;
+            for (Map.Entry<String, String> entry : inputValues.entrySet()) {
+                if (entry.getKey().contains("Button")) {
+                    buttonClick(page, entry.getKey());
+                } else if (entry.getKey().contains("TextBox")) {
+                    enterValues(page, entry.getKey(), entry.getValue());
                 }
             }
-            collect = inputData.stream().map(str -> str.split("=")).
-                    collect(toMap(str -> str[0], str -> str[1]));
-
-        } catch (IOException e) {
-            e.getMessage();
+        } catch (Exception e) {
+            log.error(e.getMessage());
         }
-        return collect;
     }
 
-    private RequestSpecification requestSpecification(){
-        RequestSpecification requestSpec = new RequestSpecBuilder().setContentType(ContentType.JSON).setBaseUri(collect.get("BaseURI"))
-                .addQueryParam(collect.get("QueryParamKey"), collect.get("QueryParamValue")).
-                        addHeader(collect.get("HeaderKey"), collect.get("HeaderValue")).build();
-        return requestSpec;
+    public void signIn() {
+        LinkedHashMap<String, String> signIn = new LinkedHashMap<>();
+        try {
+            signIn.put("SignInButton", "Click");
+            fillMyScreen(signIn, homePage);
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
+    }
+
+    public void createAccount() {
+        LinkedHashMap<String, String> createAccount = new LinkedHashMap<>();
+        try {
+            createAccount.put("EmailAddressTextBox", "feeffd@gmail.com");
+            createAccount.put("CreateAccountButton", "Click");
+            createAccount.put("TitleMrRadio", "Click");
+            createAccount.put("TitleMrsRadio", "Click");
+            createAccount.put("FirstNameTextBox", "David");
+            createAccount.put("LastNameTextBox", "Hall");
+            fillMyScreen(createAccount, authenticationPage);
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
+    }
+
+    private void buttonClick(WaitSteps waitSteps, String eleName) {
+        try {
+            waitSteps.waitForElementVisible(eleName, testContext).click();
+        } catch (StaleElementReferenceException e) {
+            log.error(e.getMessage());
+            WebElement element = testContext.getDriver().findElement(waitSteps.webElementPath.get(eleName));
+            waitSteps.findElementJSClick(element, testContext);
+        }
+    }
+
+    private void enterValues(WaitSteps waitSteps, String key, String value) {
+        try {
+            waitSteps.waitForElementVisible(key, testContext).sendKeys(value);
+        } catch (Exception e) {
+            log.info(e.getMessage());
+        }
     }
 }

@@ -15,6 +15,7 @@
         <build.helper.plugin.version>3.2.0</build.helper.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <cucumber.version>6.10.4</cucumber.version>
         <features>src/test/resources/features</features>
         <generated.runner.directory>${project.build.directory}/parallel/runners</generated.runner.directory>
         <generated.feature.directory>${project.build.directory}/parallel/features</generated.feature.directory>
@@ -23,6 +24,19 @@
         <tags>default</tags>
         <parallel>all</parallel>
     </properties>
+
+    <profiles>
+        <profile>
+        <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+        <properties>
+            <env>test</env>
+            <ux>http://automationpractice.com/index.php</ux>
+        </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>
@@ -33,18 +47,18 @@
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
-            <version>6.10.4</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-junit</artifactId>
-            <version>6.10.4</version>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-core</artifactId>
-            <version>6.10.4</version>
+            <version>${cucumber.version}</version>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
@@ -104,6 +118,23 @@
             <artifactId>opencsv</artifactId>
             <version>5.3</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.12.4</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -131,6 +162,8 @@
                     </includes>
                     <systemPropertyVariables>
                         <PARALLELSCHEME>${parallelScheme}</PARALLELSCHEME>
+                        <profileId>${env}</profileId>
+                        <UX>${ux}</UX>
 <!--                        <surefire.threadCount>1</surefire.threadCount>-->
                     </systemPropertyVariables>
                 </configuration>
