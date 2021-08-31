@@ -5,16 +5,21 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.AuthenticationPage;
+import steps.WaitSteps;
+import utils.AssertionText;
 import utils.CommonUtil;
 
 public class UxTestDefinition {
 
     private final TestContext testContext;
     private CommonUtil commonUtil;
+    private  AuthenticationPage authenticationPage;
 
     public UxTestDefinition(TestContext testContext) {
         this.testContext = testContext;
         commonUtil = new CommonUtil(testContext);
+        authenticationPage = new AuthenticationPage();
     }
 
     @Given("^user clicks create account$")
@@ -39,5 +44,10 @@ public class UxTestDefinition {
 
     @Then("verify the item counts in the cart")
     public void verifyTheItemCountsInTheCart() {
+    }
+
+    @Then("^validate the text as (.+)$")
+    public void validateText(String expected) {
+        new AssertionText(expected,"PersonalInfoLabel", authenticationPage,testContext);
     }
 }

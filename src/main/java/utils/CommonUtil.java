@@ -43,9 +43,6 @@ public class CommonUtil {
     }
 
 
-
-
-
     private void fillMyScreen(LinkedHashMap<String, String> inputValues, WaitSteps page) {
         try {
             for (Map.Entry<String, String> entry : inputValues.entrySet()) {
@@ -73,7 +70,7 @@ public class CommonUtil {
     public void createAccount() {
         LinkedHashMap<String, String> createAccount = new LinkedHashMap<>();
         try {
-            createAccount.put("EmailAddressTextBox", "feeffd@gmail.com");
+            createAccount.put("EmailAddressTextBox", "htyy@gmail.com");
             createAccount.put("CreateAccountButton", "Click");
             createAccount.put("TitleMrRadio", "Click");
             createAccount.put("TitleMrsRadio", "Click");

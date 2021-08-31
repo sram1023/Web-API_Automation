@@ -7,6 +7,7 @@ import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import steps.WaitSteps;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,6 +19,7 @@ public class TestContext {
 
     private RemoteWebDriver driver = null;
     private Map<String,String> propertyTransfer = new LinkedHashMap<>();
+    private WaitSteps waitSteps = new WaitSteps();
 
     public RemoteWebDriver getDriver(){
         if(driver == null){

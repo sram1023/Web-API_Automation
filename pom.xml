@@ -27,14 +27,14 @@
 
     <profiles>
         <profile>
-        <id>test</id>
+            <id>test</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-        <properties>
-            <env>test</env>
-            <ux>http://automationpractice.com/index.php</ux>
-        </properties>
+            <properties>
+                <env>test</env>
+                <ux>http://automationpractice.com/index.php</ux>
+            </properties>
         </profile>
     </profiles>
 
@@ -160,11 +160,12 @@
                     <includes>
                         <include>**/*IT.class</include>
                     </includes>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <systemPropertyVariables>
                         <PARALLELSCHEME>${parallelScheme}</PARALLELSCHEME>
                         <profileId>${env}</profileId>
                         <UX>${ux}</UX>
-<!--                        <surefire.threadCount>1</surefire.threadCount>-->
+                        <!--                        <surefire.threadCount>1</surefire.threadCount>-->
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -205,14 +206,15 @@
                 </executions>
                 <configuration>
                     <!-- Required properties -->
-                    <sourceRunnerTemplateFile>src/test/java/com/api/parallel/CucableJavaTemplate.java</sourceRunnerTemplateFile>
+                    <sourceRunnerTemplateFile>src/test/java/com/api/parallel/CucableJavaTemplate.java
+                    </sourceRunnerTemplateFile>
                     <sourceFeatures>${features}</sourceFeatures>
                     <generatedFeatureDirectory>${generated.feature.directory}</generatedFeatureDirectory>
                     <generatedRunnerDirectory>${generated.runner.directory}</generatedRunnerDirectory>
 
                     <!-- Optional properties -->
                     <numberOfTestRuns>1</numberOfTestRuns>
-<!--                    <includeScenarioTags></includeScenarioTags>-->
+                    <!--                    <includeScenarioTags></includeScenarioTags>-->
                     <logLevel>default</logLevel>
                 </configuration>
             </plugin>
@@ -232,6 +234,32 @@
                                 <source>${generated.runner.directory}</source>
                             </sources>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.cxf</groupId>
+                <artifactId>cxf-codegen-plugin</artifactId>
+                <version>3.4.4</version>
+                <executions>
+                    <execution>
+                        <id>generate-sources</id>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+                            <wsdlOptions>
+                                <wsdlOption>
+                                    <wsdl>http://www.dneonline.com/calculator.asmx?wsdl</wsdl>
+                                </wsdlOption>
+                                <wsdlOption>
+                                    <wsdl>http://webservices.oorsprong.org/websamples.countryinfo/CountryInfoService.wso?WSDL
+                                    </wsdl>
+                                </wsdlOption>
+                            </wsdlOptions>
+                        </configuration>
+                        <goals>
+                            <goal>wsdl2java</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>

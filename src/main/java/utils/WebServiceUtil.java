@@ -1,21 +1,17 @@
 package utils;
 
-import Pojo.*;
+import pojo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import context.TestContext;
 import io.cucumber.messages.internal.com.google.gson.Gson;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
-import javafx.geometry.Pos;
 import junit.framework.AssertionFailedError;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.junit.Assert;
 import com.fasterxml.jackson.databind.*;
 
 import java.io.FileReader;
@@ -23,7 +19,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;

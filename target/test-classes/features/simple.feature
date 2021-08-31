@@ -21,6 +21,10 @@ Feature: Rest API tests
   Scenario: test the site
     Given user clicks create account
     And user filling the personal information
-    When user back to home page
-    And add the items into the cart
-    Then verify the item counts in the cart
+    Then validate the text as Your personal information
+#    When user back to home page
+#    And add the items into the cart
+#    Then verify the item counts in the cart
+  @soap
+  Scenario: test the soap
+    Given perform the addition and subtraction operation
