@@ -38,6 +38,5 @@ public class UxTestDefinition {
     @Then("^validate the text as (.+)$")
     public void validateText(String expected) {
         new AssertionText(expected, "PersonalInfoLabel", authenticationPage, testContext);
-
     }
 }

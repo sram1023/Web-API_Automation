@@ -24,8 +24,6 @@ P
  src/main/java/pojo/Location.java,9\1\91bb5f9da9f6e7dc3822cbda495f2764cf5aa508
 T
 $src/main/java/pojo/PostResponse.java,e\1\e126a1014d4fbcee9334a70cc64de4d2009b9d2e
-Q
-!src/main/java/pages/HomePage.java,9\6\9655b2a35fae75d92697b79cda62632f93f33e6e
 V
 &src/main/java/context/TestContext.java,e\3\e351a17ce975b3371b99223e817b62791ea0ad9f
 S
@@ -44,8 +42,6 @@ L
 src/main/java/calc/Calc.java,a\e\aedb9d5bd796919b6b1b5831dd149dbb6a581efb
 S
 #src/main/java/utils/CommonUtil.java,1\d\1d8052b3f15d95024ad24126d18b76a7407bfaeb
-[
-+src/main/java/pages/AuthenticationPage.java,5\c\5c5fd99854550f7b20527370b38b66d969356393
 R
 "src/main/java/steps/WaitSteps.java,5\1\518750882d64145cb739a82c67105125f2412f83
 W
