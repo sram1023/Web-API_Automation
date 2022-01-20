@@ -1,0 +1,56 @@
+package com.web.stepdefinitions;
+
+import context.TestContext;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pages.AuthenticationPage;
+import utils.AssertionText;
+import utils.CommonUtil;
+
+public class UxTestDefinition {
+
+    private final TestContext testContext;
+    private CommonUtil commonUtil;
+    private AuthenticationPage authenticationPage;
+
+    public UxTestDefinition(TestContext testContext) {
+        this.testContext = testContext;
+        commonUtil = new CommonUtil(testContext);
+        authenticationPage = new AuthenticationPage();
+    }
+
+    public void launchApplication() {
+        testContext.getDriver().get(System.getProperty("UX"));
+    }
+
+    @Given("^user clicks create account$")
+    public void homePage() {
+        this.launchApplication();
+        commonUtil.signIn();
+    }
+
+    @And("user filling the personal information")
+    public void userFillingThePersonalInformation() {
+        commonUtil.createAccount();
+    }
+
+    @When("user back to home page")
+    public void userBackToHomePage() {
+    }
+
+    @And("add the items into the cart")
+    public void addTheItemsIntoTheCart() {
+    }
+
+    @Then("verify the item counts in the cart")
+    public void verifyTheItemCountsInTheCart() {
+    }
+
+    @Then("^validate the text as (.+)$")
+    public void validateText(String expected) {
+        new AssertionText(expected, "PersonalInfoLabel", authenticationPage, testContext);
+    }
+}

@@ -20,7 +20,6 @@ public class AssertionText implements Assertion {
         this.itemKey = itemKey;
         this.testContext = testContext;
         this.page = page;
-        assertAction();
     }
 
     @Override

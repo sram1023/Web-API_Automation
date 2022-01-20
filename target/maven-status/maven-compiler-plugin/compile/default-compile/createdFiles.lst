@@ -34,7 +34,6 @@ org\oorsprong\websamples\CapitalCityResponse.class
 context\TestContext.class
 org\oorsprong\websamples\FullCountryInfoAllCountries.class
 org\oorsprong\websamples\ListOfLanguagesByNameResponse.class
-MyTest.class
 org\oorsprong\websamples\ArrayOftContinent.class
 org\oorsprong\websamples\CountryISOCodeResponse.class
 org\oorsprong\websamples\ArrayOftLanguage.class
