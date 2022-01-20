@@ -6,6 +6,6 @@ Used some common APIs for both Rest and Soap services.
 
 To run the feature files in CLI
 
-mvn clean test -Dcucumber.filter.tags=@tagname
+"mvn clean test -Dcucumber.filter.tags=@tagname"
 
-Please find the cucumber-html report in target folder
+Please find the target/cucumber-html-reports in target folder
