@@ -57,7 +57,7 @@ public class WebServiceUtil {
                         when().post(collect.get("Resource")).then().assertThat().
                         statusCode(Integer.parseInt(collect.get("StatusCode"))).log().all()
                         .extract().response();
-                log.info("Post Response==============" + response.asString());
+                System.out.println("Post Response==============" + response.asString());
                 break;
             case "get":
                 response = given().spec(requestSpecification()).queryParam(collect.get("QueryParamPlaceId"), placeIdValue()).

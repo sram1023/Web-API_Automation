@@ -206,7 +206,7 @@
                 </executions>
                 <configuration>
                     <!-- Required properties -->
-                    <sourceRunnerTemplateFile>src/test/java/com/api/parallel/CucableJavaTemplate.java
+                    <sourceRunnerTemplateFile>src/test/java/com/web/parallel/CucableJavaTemplate.java
                     </sourceRunnerTemplateFile>
                     <sourceFeatures>${features}</sourceFeatures>
                     <generatedFeatureDirectory>${generated.feature.directory}</generatedFeatureDirectory>

@@ -18,11 +18,6 @@ public class Hooks {
         this.testContext = testContext;
     }
 
-    @Before
-    public void beforeScenario(){
-        testContext.getDriver().get(System.getProperty("UX"));
-    }
-
     @After
     public void afterScenario(Scenario scenario) {
         try {
@@ -31,7 +26,7 @@ public class Hooks {
                 byte[] screenshot = ((TakesScreenshot) testContext.getDriver()).getScreenshotAs(OutputType.BYTES);
                 scenario.attach(screenshot, "image/png", "Screenshot");
             }
-        }catch (WebDriverException e){
+        } catch (WebDriverException e) {
             log.error(e.getMessage());
         }
     }
