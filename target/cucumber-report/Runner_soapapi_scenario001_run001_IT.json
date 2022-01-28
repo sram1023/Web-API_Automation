@@ -3,7 +3,7 @@
     "line": 3,
     "elements": [
       {
-        "start_timestamp": "2022-01-20T14:08:24.731Z",
+        "start_timestamp": "2022-01-28T14:41:48.622Z",
         "line": 6,
         "name": "Do the arithmetic operations using soap wsdl",
         "description": "",
@@ -11,6 +11,7 @@
         "after": [
           {
             "result": {
+              "duration": 4000000,
               "status": "passed"
             },
             "match": {
@@ -23,7 +24,7 @@
         "steps": [
           {
             "result": {
-              "duration": 3914000000,
+              "duration": 3711000000,
               "status": "passed"
             },
             "line": 7,
