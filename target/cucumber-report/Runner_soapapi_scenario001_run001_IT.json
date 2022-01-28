@@ -1,0 +1,52 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "start_timestamp": "2022-01-28T14:47:59.277Z",
+        "line": 6,
+        "name": "Do the arithmetic operations using soap wsdl",
+        "description": "",
+        "id": "perform-the-arithmetic-operations;do-the-arithmetic-operations-using-soap-wsdl",
+        "after": [
+          {
+            "result": {
+              "duration": 4000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.hooks.Hooks.afterScenario(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3624000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "perform the addition and subtraction operation",
+            "match": {
+              "location": "com.web.stepdefinitions.RestWebServices.performTheAdditionAndSubtractionOperation()"
+            },
+            "keyword": "Given "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@SoapApi"
+          }
+        ]
+      }
+    ],
+    "name": "Perform the arithmetic operations",
+    "description": "",
+    "id": "perform-the-arithmetic-operations",
+    "keyword": "Feature",
+    "uri": "file:target/parallel/features/soapapi_scenario001_run001_IT.feature",
+    "tags": []
+  }
+]
