@@ -1,0 +1,7 @@
+com\web\stepdefinitions\UxTestDefinition.class
+com\web\parallel\CucableJavaTemplate.class
+com\web\stepdefinitions\RestWebServices.class
+Runner_createaccount_scenario001_run001_IT.class
+Runner_restapi_scenario001_run001_IT.class
+Runner_soapapi_scenario001_run001_IT.class
+com\hooks\Hooks.class
