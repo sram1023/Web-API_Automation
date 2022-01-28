@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Perform the arithmetic operations" time="4.126" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="Perform the arithmetic operations" time="4.02" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -16,7 +16,7 @@
     <property name="maven.conf" value="C:\apache-maven-3.8.1/conf"/>
     <property name="os.name" value="Windows 10"/>
     <property name="java.vm.specification.version" value="1.8"/>
-    <property name="org.apache.logging.log4j.assignedSequences" value="9501"/>
+    <property name="org.apache.logging.log4j.assignedSequences" value="14429"/>
     <property name="user.country" value="GB"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_291\jre\bin"/>
@@ -73,7 +73,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="52.0"/>
   </properties>
-  <testcase name="Do the arithmetic operations using soap wsdl" classname="Perform the arithmetic operations" time="4.126">
+  <testcase name="Do the arithmetic operations using soap wsdl" classname="Perform the arithmetic operations" time="4.02">
     <system-out><![CDATA[Add:11, Sub:1, Mul:4, Div:5
 countryName:No country found by that name, Name:Country not found in the database
 ]]></system-out>

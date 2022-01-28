@@ -2,7 +2,10 @@
 .idea/
 *.iml
 *.iws
+.classpath
+.project
+.settings/
+*/target/**
 
 # Maven
 log/
-target/

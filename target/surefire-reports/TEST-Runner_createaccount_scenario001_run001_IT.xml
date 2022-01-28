@@ -16,7 +16,7 @@
     <property name="maven.conf" value="C:\apache-maven-3.8.1/conf"/>
     <property name="os.name" value="Windows 10"/>
     <property name="java.vm.specification.version" value="1.8"/>
-    <property name="org.apache.logging.log4j.assignedSequences" value="9501"/>
+    <property name="org.apache.logging.log4j.assignedSequences" value="14429"/>
     <property name="user.country" value="GB"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_291\jre\bin"/>
