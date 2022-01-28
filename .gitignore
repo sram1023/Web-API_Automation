@@ -1,11 +1,14 @@
+
+.classpath
+.project
+.settings/
+target/
+
 # Intellij
 .idea/
 *.iml
 *.iws
-.classpath
-.project
-.settings/
-*/target/**
+
 
 # Maven
 log/
