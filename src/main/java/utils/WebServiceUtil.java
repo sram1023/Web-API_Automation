@@ -176,9 +176,7 @@ public class WebServiceUtil {
         } catch (JsonProcessingException e) {
             log.error(e.getMessage());
         }
-
     }
-
 
     public Map<String, String> getInputData(String action) {
         List<String> inputData = new ArrayList<>();
