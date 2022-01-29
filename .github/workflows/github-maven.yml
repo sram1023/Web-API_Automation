@@ -6,12 +6,10 @@ name: Java CI with Maven
 on:
   push:
     branches:
-      include:
         - main
         - master
   pull_request:
     branches:
-      include:
         - main
         - master
 
