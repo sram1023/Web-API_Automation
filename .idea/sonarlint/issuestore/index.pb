@@ -35,3 +35,9 @@ R
 "src/test/java/com/hooks/Hooks.java,d\4\d4c3e35498f094a9f99a0fa3fe14edf2c04fceef
 [
 +src/main/java/pages/AuthenticationPage.java,5\c\5c5fd99854550f7b20527370b38b66d969356393
+k
+;src/test/java/com/web/stepdefinitions/UxTestDefinition.java,0\b\0b4a8cf728ebbcf9a772c019a5910117222d29f6
+S
+#src/main/java/utils/CommonUtil.java,1\d\1d8052b3f15d95024ad24126d18b76a7407bfaeb
+Q
+!src/main/java/pages/HomePage.java,9\6\9655b2a35fae75d92697b79cda62632f93f33e6e
