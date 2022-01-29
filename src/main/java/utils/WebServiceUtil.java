@@ -18,6 +18,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -175,14 +176,12 @@ public class WebServiceUtil {
         } catch (JsonProcessingException e) {
             log.error(e.getMessage());
         }
-
     }
-
 
     public Map<String, String> getInputData(String action) {
         List<String> inputData = new ArrayList<>();
         Gson gson = new Gson();
-        try (Reader reader = new FileReader("input.json")) {
+        try (Reader reader = new FileReader("restapi_input.json")) {
             Map<String, List<String>> strJson = gson.fromJson(reader, Map.class);
             for (Map.Entry<String, List<String>> entry : strJson.entrySet()) {
                 if (entry.getKey().equalsIgnoreCase(action.toLowerCase())) {
