@@ -247,6 +247,7 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+<!--                            <fork>always</fork>-->
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>http://www.dneonline.com/calculator.asmx?wsdl</wsdl>
