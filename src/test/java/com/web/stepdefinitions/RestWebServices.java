@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Before;
-import utils.WebServiceUtil;
+import com.utility.WebServiceUtil;
 
 import java.net.MalformedURLException;
 
@@ -30,6 +30,16 @@ public class RestWebServices {
     @Given("^the rest api for (.+) is ready$")
     public void restApi(String action) {
         webServiceUtil.restApiActions(action);
+    }
+
+    @Given("the api for get is ready")
+    public void testGet() {
+        webServiceUtil.getApiURI();
+    }
+
+    @Then("^validate all the fields of response$")
+    public void validateTheResponse() {
+        webServiceUtil.getApiResponse();
     }
 
     @When("^I (.+) the record with some details$")
