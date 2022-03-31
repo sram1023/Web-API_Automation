@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Practice</artifactId>
+    <artifactId>WebAndApiTesting</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -20,7 +20,7 @@
         <generated.runner.directory>${project.build.directory}/parallel/runners</generated.runner.directory>
         <generated.feature.directory>${project.build.directory}/parallel/features</generated.feature.directory>
         <parallelScheme>scenarios</parallelScheme>
-        <reportPhase>test</reportPhase>
+        <reportPhase>verify</reportPhase>
         <tags>default</tags>
         <parallel>all</parallel>
     </properties>
@@ -63,27 +63,27 @@
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
-            <version>4.4.0</version>
+            <version>5.0.0</version>
             <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-path</artifactId>
-            <version>4.2.0</version>
+            <version>5.0.0</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>xml-path</artifactId>
-            <version>4.2.0</version>
+            <version>5.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>json-schema-validator</artifactId>
-            <version>4.2.0</version>
+            <version>5.0.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -134,7 +134,6 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.12.4</version>
         </dependency>
-
     </dependencies>
 
     <build>
@@ -170,9 +169,22 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.5.0</version>
+                <version>5.6.1</version>
                 <executions>
                     <execution>
                         <id>execution</id>
@@ -182,6 +194,7 @@
                         </goals>
                         <configuration>
                             <projectName>Cucumber HTML Reports</projectName>
+                            <skip>false</skip>
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <mergeFeaturesById>true</mergeFeaturesById>
                             <jsonFiles>
@@ -247,6 +260,7 @@
                         <phase>generate-sources</phase>
                         <configuration>
                             <sourceRoot>${project.build.directory}/generated-sources/cxf</sourceRoot>
+<!--                            <fork>always</fork>-->
                             <wsdlOptions>
                                 <wsdlOption>
                                     <wsdl>http://www.dneonline.com/calculator.asmx?wsdl</wsdl>

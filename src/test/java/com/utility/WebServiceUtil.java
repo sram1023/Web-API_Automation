@@ -1,5 +1,6 @@
-package utils;
+package com.utility;
 
+import org.junit.Assert;
 import pojo.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import io.cucumber.messages.internal.com.google.gson.Gson;
@@ -14,6 +15,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import com.fasterxml.jackson.databind.*;
 
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -23,8 +25,8 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.proxy;
 import static java.util.stream.Collectors.toMap;
+import static io.restassured.module.jsv.JsonSchemaValidator.*;
 
 @Slf4j
 public class WebServiceUtil {
@@ -39,17 +41,29 @@ public class WebServiceUtil {
     String action = "";
     ObjectMapper objectMapper = new ObjectMapper();
 
-    public static void baseURI(Map<String, String> collect) {
-        RestAssured.baseURI = collect.get("BaseURI");
+    public static void baseURI(String baseURI) {
+        RestAssured.baseURI = baseURI;
     }
 
     public Map<String, String> restApiActions(String action) {
         return getInputData(action);
     }
 
+    public void getApiURI(){
+        baseURI("https://reqres.in");
+    }
+
+    public void getApiResponse(){
+        response = given().
+                when().get("/api/users?page=2").then().assertThat().
+                body(matchesJsonSchema(new File("src\\test\\resources\\schema\\responsePayload.json")))
+                .log().all()
+                .extract().response();
+    }
+
     public void restActions(String action) {
 
-        baseURI(collect);
+        baseURI(collect.get("BaseURI"));
 
         switch (action) {
             case "post":
@@ -124,18 +138,27 @@ public class WebServiceUtil {
 
     }
 
+    /**
+     * we can deserialize the response with the help of getBody().as() method
+     *
+     */
     public void validatePost(String expected) {
         try {
             action = "Post";
-            postResponse = setObjectMapper(PostResponse.class);
-            if (!this.postResponse.getStatus().equals(expected)) {
-                throw new AssertionFailedError();
-            }
-        } catch (JsonProcessingException e) {
+            postResponse = response.getBody().as(PostResponse.class);
+//            postResponse = setObjectMapper(PostResponse.class);
+            Assert.assertEquals(postResponse.getStatus(),expected);
+        } catch (Exception e) {
             log.error(e.getMessage());
         }
     }
 
+    /**
+     * Object mapper is used covert the response body back to java object
+     * with the support of pojo classes
+     * If the response is wrapped as java object, then it is easy to parse and
+     * extract response using getters methods.
+     */
     private <T> T setObjectMapper(Class<T> action) throws JsonProcessingException {
         T responseValue;
         responseValue = objectMapper.readValue(response.asString(), action);
@@ -146,9 +169,7 @@ public class WebServiceUtil {
         try {
             action = "put";
             putResponse = setObjectMapper(PutResponse.class);
-            if (!this.putResponse.getMsg().equals(expected)) {
-                throw new AssertionFailedError();
-            }
+            Assert.assertEquals(putResponse.getMsg(),expected);
         } catch (JSONException | JsonProcessingException err) {
             err.printStackTrace();
         }
@@ -170,9 +191,7 @@ public class WebServiceUtil {
     public void validateDelete(String expected) {
         try {
             deleteResponse = setObjectMapper(DeleteResponse.class);
-            if (!this.deleteResponse.getStatus().equals(expected)) {
-                throw new AssertionFailedError();
-            }
+            Assert.assertEquals(deleteResponse.getStatus(),expected);
         } catch (JsonProcessingException e) {
             log.error(e.getMessage());
         }

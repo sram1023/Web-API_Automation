@@ -16,3 +16,8 @@ Feature: Rest API tests
     And the rest api for delete is ready
     And I delete the record with some details
     Then validate the delete success status OK
+
+   @test
+  Scenario: Validate the get response using json schema validator
+    Given the api for get is ready
+    Then validate all the fields of response
